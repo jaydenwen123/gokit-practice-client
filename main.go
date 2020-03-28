@@ -10,6 +10,7 @@ import (
 
 func main() {
 
+	//todo 改造成从consul获取连接信息
 	tgt, err := url.Parse("http://localhost:2345")
 	if err != nil {
 		logs.Error("the url parse is error:", err.Error())
