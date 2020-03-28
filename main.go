@@ -30,8 +30,12 @@ func main() {
 		logs.Error("GetConnectEndpointerWithConsul from consul occurs error:", err.Error())
 		return
 	}
+	//轮训的方式
 	logs.Debug("========the round robin way....")
 	balancer := lb.NewRoundRobin(eps)
+	//随机方式
+	//logs.Debug("========the random  way....")
+	//balancer := lb.NewRandom(eps, time.Now().Unix())
 	for {
 		endPoint, err := balancer.Endpoint()
 		if err != nil {
